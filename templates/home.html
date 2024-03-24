@@ -1,47 +1,110 @@
 {% extends 'layouts/auth.html' %}
 
 {% block body %}
+<style>
+    /* Custom styles for larger radio buttons */
+    .form-check-input[type="radio"].form-check-bigger {
+        width: 2.5em;
+        height: 2.5em;
+    }
+    
+    .form-check-input[type="radio"].form-check-smaller {
+        width: 1.4em; /* Decrease the width for smaller size */
+        height: 1.4em; /* Decrease the height for smaller size */
+    }
+    
+    /* Custom styles for aligning radio button with text */
+    .mbti-option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Custom styles for aligning radio buttons horizontally */
+    .mbti-options-row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    /* Custom styles for adjusting spacing between elements */
+    .mbti-option label {
+        margin-top: 0.5em; /* Adjust as needed */
+    }
+
+    .mbti-option input[type="radio"] {
+        margin-bottom: 0.5em; /* Adjust as needed */
+    }
+</style>
+
 <div class="container mt-5">
     <div class="card">
-      <h5 class="card-title text-center mb-4">Personality Traits Prediction</h5>
-      <div class="card-body text-center"> <!-- Added text-center class here -->
-        <div class="mb-3">
-          <label for="question" class="form-label">Question 1</label>
-          <span id="question">ajhdjkhshdklahfklh</span>
-        </div>
-        
-        <div class="row">
-          <!-- Strongly Disagree -->
-          <div class="col-md-3 mb-3">
-            <div class="mbti-option">
-              <input class="form-check-input" type="radio" name="agreement" id="disagree-strongly" value="1">
-              <label class="form-check-label" for="disagree-strongly">Strongly Disagree</label>
+        <h5 class="card-title text-center mb-4">Personality Traits Prediction</h5>
+        <div class="card-body text-center">
+            <div class="mb-3">
+                <label for="question" class="form-label">Question 1</label>
+                <span id="question">ajhdjkhshdklahfklh</span>
             </div>
-          </div>
-          <!-- Disagree -->
-          <div class="col-md-3 mb-3">
-            <div class="mbti-option">
-              <input class="form-check-input" type="radio" name="agreement" id="disagree" value="2">
-              <label class="form-check-label" for="disagree">Disagree</label>
-            </div>
-          </div>
-          <!-- Agree -->
-          <div class="col-md-3 mb-3">
-            <div class="mbti-option">
-              <input class="form-check-input" type="radio" name="agreement" id="agree" value="3">
-              <label class="form-check-label" for="agree">Agree</label>
-            </div>
-          </div>
-          <!-- Strongly Agree -->
-          <div class="col-md-3 mb-3">
-            <div class="mbti-option">
-              <input class="form-check-input" type="radio" name="agreement" id="agree-strongly" value="4">
-              <label class="form-check-label" for="agree-strongly">Strongly Agree</label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
+            <div class="mbti-options-row">
+                <!-- Large Agree -->
+                <div class="col-md-1 mb-3 text-center">
+                    <div class="mbti-option">
+                        <input class="form-check-input form-check-bigger" type="radio" name="agreement"
+                            id="agree-strongly" value="4">
+                        <label class="form-check-label" for="agree-strongly">Strongly Agree</label>
+                    </div>
+                </div>
+                <!-- Medium Agree -->
+                <div class="col-md-1 mb-3 text-center">
+                    <div class="mbti-option">
+                        <input class="form-check-input form-check-bigger form-check-smaller" type="radio"
+                            name="agreement" id="agree" value="3">
+                        <label class="form-check-label" for="agree">Agree</label>
+                    </div>
+                </div>
+                <!-- Small Agree -->
+                <div class="col-md-1 mb-3 text-center">
+                    <div class="mbti-option">
+                        <input class="form-check-input form-check-smaller" type="radio" name="agreement"
+                            id="agree-weakly" value="2">
+                        <label class="form-check-label" for="agree-weakly">Weakly Agree</label>
+                    </div>
+                </div>
+                <!-- Neutral -->
+                <div class="col-md-1 mb-3 text-center">
+                    <div class="mbti-option">
+                        <input class="form-check-input form-check-smaller" type="radio"
+                            name="agreement" id="neutral" value="1">
+                        <label class="form-check-label" for="neutral">Neutral</label>
+                    </div>
+                </div>
+                <!-- Small Disagree -->
+                <div class="col-md-1 mb-3 text-center">
+                    <div class="mbti-option">
+                        <input class="form-check-input form-check-smaller" type="radio" name="agreement"
+                            id="disagree-weakly" value="-2">
+                        <label class="form-check-label" for="disagree-weakly">Weakly Disagree</label>
+                    </div>
+                </div>
+                <!-- Medium Disagree -->
+                <div class="col-md-1 mb-3 text-center">
+                    <div class="mbti-option">
+                        <input class="form-check-input form-check-bigger form-check-smaller" type="radio"
+                            name="agreement" id="disagree" value="-3">
+                        <label class="form-check-label" for="disagree">Disagree</label>
+                    </div>
+                </div>
+                <!-- Large Disagree -->
+                <div class="col-md-1 mb-3 text-center">
+                    <div class="mbti-option">
+                        <input class="form-check-input form-check-bigger" type="radio" name="agreement"
+                            id="disagree-strongly" value="-4">
+                        <label class="form-check-label" for="disagree-strongly">Strongly Disagree</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
