@@ -2,8 +2,13 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from svm import predict, preprocess_and_train
 from sklearn.preprocessing import LabelEncoder
 import requests
+from db import create_db, DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
 
 app = Flask(__name__)
+app.secret_key = 'secrettt'
+
+create_db()
+
 
 @app.route('/')
 def index():
