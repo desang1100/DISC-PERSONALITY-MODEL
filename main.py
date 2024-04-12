@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('form.html')
+    return render_template('index.html')
 
 @app.route('/form', methods=['GET', 'POST'])
 def form():
@@ -56,6 +56,11 @@ def form():
 @app.route('/login_process')
 def login_process():
     return render_template('login_process.html')
+
+@app.route('/personality_test')
+def personality_test():
+    return render_template('form.html')
+
 
 
 
