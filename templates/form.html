@@ -1,119 +1,1291 @@
-  {% extends 'layouts/base.html' %}
+{% extends 'layouts/base.html' %}
  
-  {% block body %}
+{% block body %}
+<div class="container p-5">
+  <form action="/form" method="post">
 
-    <div class="container p-5">
-      <form action="/form" method="post">
-  
-        <div class="card">
-          <div class="card-header">
-              Question 1
-          </div>
-          <div class="card-body">
-              <h5 class="card-title">How do you handle stress and pressure at work?</h5>
-      
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="question1" id="question1OptionD" value="D" >
-                  <label class="form-check-label" for="question1OptionD">
-                      I don’t want to complicate things, so I can solve my own problems.
-                  </label>
-              </div>
-      
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="question1" id="question1OptionI" value="I" >
-                  <label class="form-check-label" for="question1OptionI">
-                      Talk to others to alleviate the emotions.
-                  </label>
-              </div>
-      
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="question1" id="question1OptionS" value="S" >
-                  <label class="form-check-label" for="question1OptionS">
-                      I’ll give myself a break before going back.
-                  </label>
-              </div>
-      
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="question1" id="question1OptionC" value="C" >
-                  <label class="form-check-label" for="question1OptionC">
-                      Talk to others to alleviate the emotions.
-                  </label>
-              </div>
-      
-          </div>
+    
+    <!-- Card 1 -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
       </div>
-      
-  
-      <div class="card mt-5">
-        <div class="card-header">
-            Question 2
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">How do you handle stress and pressure at work?</h5>
-    
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question1" id="question1OptionD" value="D" >
-                <label class="form-check-label" for="question1OptionD">
-                    I don’t want to complicate things, so I can solve my own problems.
-                </label>
-            </div>
-    
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question1" id="question1OptionI" value="I" >
-                <label class="form-check-label" for="question1OptionI">
-                    Talk to others to alleviate the emotions.
-                </label>
-            </div>
-    
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question1" id="question1OptionS" value="S" >
-                <label class="form-check-label" for="question1OptionS">
-                    I’ll give myself a break before going back.
-                </label>
-            </div>
-    
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="question1" id="question1OptionC" value="C" >
-                <label class="form-check-label" for="question1OptionC">
-                    Talk to others to alleviate the emotions.
-                </label>
-            </div>
-            <div class="next d-flex justify-content-end">
-              <a href="#" class="btn btn-primary  d-flex align-items-end">Next</a>
-            </div>
-            
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
         </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
     </div>
-      
-      <!-- <div>
-        <label for="question1">1. How do you handle stress and pressure at work?</label><br>
-        <select id="question1" name="question1">
-          <option value="D">I don’t want to complicate things, so I can solve my own problems.</option>
-          <option value="I">Talk to others to alleviate the emotions.</option>
-          <option value="S">I’ll give myself a break before going back.</option>
-          <option value="C">I will address the cause of my stress, so I can find the appropriate solution.</option>
-        </select>
+    
+    <!-- Card 2 -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 2
       </div>
-      
-      <div>
-        <label for="question2">2. What do you do during free time at work?</label><br>
-        <select id="question2" name="question2">
-          <option value="D">I will, then proceed to work on the pending tasks.</option>
-          <option value="I">Interact with others or engage in conversations with colleagues.</option>
-          <option value="S">Inquire about the well-being of your workmates.</option>
-          <option value="C">I analyze the challenging tasks.</option>
-        </select>
-      </div> -->
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">What do you do during free time at work?</h5>
     
-    
-      <!-- <div>
-        <button type="submit">Submit</button>
-      </div> -->
-    </form>
-  
-  
-  </div>
-  
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q2op1">
+            <input class="form-check-input" type="radio" name="q2op1" id="q2op1" value="DOMINANCE">
+            I will, then proceed to work on the pending tasks.
+          </label>
+        </div>
 
+        <div class="form-check">
+          <label class="form-check-label" for="q2op2">
+            <input class="form-check-input" type="radio" name="q2op2" id="q2op2" value="INFLUENTIAL">
+            Interact with others or engage in conversations will colleagues.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q2op3">
+            <input class="form-check-input" type="radio" name="q2op3" id="q2op3" value="STEADINESS">
+            Inquire about the well- being of your workmates.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q2op4">
+            <input class="form-check-input" type="radio" name="q2op4" id="q2op4" value="CONSCIENTIOUSNESS">
+            I analyze the challenging tasks.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card -->
+    <div class="card mb-3">
+      <div class="card-header">
+        Question 1
+      </div>
+      <div class="card-body">
+        <!-- Title -->
+        <h5 class="card-title">How do you handle stress and pressure at work?</h5>
+    
+        <!-- Options -->
+        <div class="form-check">
+          <label class="form-check-label" for="q1op1">
+            <input class="form-check-input" type="radio" name="q1op1" id="q1op1" value="DOMINANCE">
+            I don’t want to complicate things, so I can solve my own problems.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op2">
+            <input class="form-check-input" type="radio" name="q1op2" id="q1op2" value="INFLUENTIAL">
+            Talk to others to alleviate the emotions.
+          </label>
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label" for="q1op3">
+            <input class="form-check-input" type="radio" name="q1op3" id="q1op3" value="STEADINESS">
+            I’ll give myself a break before going back.
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="q1op4">
+            <input class="form-check-input" type="radio" name="q1op4" id="q1op4" value="CONSCIENTIOUSNESS">
+            I will address the cause of my stress, so I can find the appropriate solution.
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+  </form>
+</div>
 {% endblock %}
-

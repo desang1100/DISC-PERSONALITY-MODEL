@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from svm import predict, preprocess_and_train
 from sklearn.preprocessing import LabelEncoder
 import requests
+import json
 from db import create_db, DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
 
 app = Flask(__name__)
@@ -65,9 +66,6 @@ def login_process():
 @app.route('/personality_test')
 def personality_test():
     return render_template('form.html')
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
