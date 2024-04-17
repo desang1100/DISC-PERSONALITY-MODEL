@@ -1,19 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Result</title>
-</head>
-<body>
+{% extends 'layouts/base.html' %}
 
-<h2>Personality Test Result</h2>
-
-{% if result %}
-  <p>Your personality type is: {{ result }}</p>
-{% else %}
-  <p>No result available.</p>
-{% endif %}
-
-</body>
-</html>
+{% block body %}
+<div class="container" style="height: 90vh;">
+  <div class="row justify-content-center align-items-center" style="height: 90vh;">
+    <div class="col-md-6">
+      <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="card-body text-center">
+          <h2 class="card-title mb-4">Personality Test Result</h2>
+          <div class="result">
+            {% if result %}
+              <p class="lead">Your personality type is: <strong>{{ result }}</strong></p>
+            {% else %}
+              <p class="lead">No result available.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
