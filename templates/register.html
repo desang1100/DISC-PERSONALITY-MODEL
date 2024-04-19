@@ -1,0 +1,47 @@
+{% extends 'layouts/base.html' %}
+
+{% block body %}
+<div class="d-flex justify-content-center align-items-center p-3 overflow-hidden" style="min-height: 100vh; background-image: linear-gradient(180deg, #ffffff, #f3f3f3);">
+    <form id="myForm" action="{{ url_for('register') }}" method="post" class="shadow-lg p-4 rounded-4 h-10">
+        <div class="mb-3">
+            <h1><span class="badge rounded-pill text-bg-primary ">Register</span></h1>
+        </div>
+        <div class="d-flex gap-5">
+            <!-- Left -->
+            <div class="mt-2">
+                <div class="mb-1">
+                    <label for="fname" class="form-label">First Name</label>
+                    <input type="text" name="fname" class="form-control" id="fname" placeholder="Type Here" required>
+                </div>
+                <div class="mb-1">
+                    <label for="mname" class="form-label">Middle Name</label>
+                    <input type="text" name="mname" class="form-control" id="mname" placeholder="Type Here" required>
+                </div>
+                <div class="mb-1">
+                    <label for="lname" class="form-label">Last Name</label>
+                    <input type="lname" name="lname" class="form-control" id="lname" placeholder="Type Here" required>
+                </div>
+            </div>
+
+            <!-- Right -->
+            <div class="mt-2">
+                <div class="mb-1">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="imongemail@gmail.com" required>
+                </div>
+                <div class="mb-1">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-3">
+            <a href="/">Already have an account?</a>
+            <input type="submit" value="Submit" class="btn btn-primary" id="toastBtn">
+        </div>
+    </form>
+</div>
+<script>
+</script>
+{% endblock %}
