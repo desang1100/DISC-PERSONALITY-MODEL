@@ -122,7 +122,7 @@ def register():
 def about():
     return render_template('about.html')
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form['email']
