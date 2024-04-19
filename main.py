@@ -124,6 +124,22 @@ def about():
 
 @app.route('/login')
 def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        conn = connection()
+        with conn.cursor() as cur:
+            cur.execute("SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
+            user = cur.fetchone()
+        conn.close()
+
+        if user:
+            session['user'] = user
+            return redirect(url_for('personality_test'))
+        else:
+            message = 'Invalid email or password'
+            return redirect(url_for('login', message = message))
     return render_template('login.html')
 
 if __name__ == '__main__':
