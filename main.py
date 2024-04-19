@@ -3,13 +3,20 @@ from svm import predict, preprocess_and_train
 from sklearn.preprocessing import LabelEncoder
 import requests
 import json
-from db import create_db, DB_HOST, DB_NAME, DB_PASSWORD, DB_USER
+from flask_mysqldb import MySQLdb
+from db import create_db
 
 app = Flask(__name__)
 app.secret_key = 'secrettt'
 
 create_db()
 
+def connection():
+    try:
+        conn = MySQLdb.connect(host="localhost", user="root", password="", db="disc_db")
+        return conn
+    except Exception as e:
+        return str(e)
 
 @app.route('/')
 def index():
@@ -18,6 +25,12 @@ def index():
 @app.route('/form', methods=['GET', 'POST'])
 def form():
     if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        bithdate = request.form['birthdate']
+        age = request.form['age']
+        gender = request.form['gender']
+        address = request.form['address']
         question1 = request.form['question1']
         question2 = request.form['question2']
         question3 = request.form['question3']
@@ -51,10 +64,24 @@ def form():
         question31 = request.form['question31']
         question32 = request.form['question32']
 
-        new_data = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20, question21, question22, question23, question24, question25, question26, question27, question28, question29, question30, question31, question32]
+        new_data = [name,email,bithdate,age,gender,address,question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20, question21, question22, question23, question24, question25, question26, question27, question28, question29, question30, question31, question32]
 
         Classifier = preprocess_and_train()
         result = predict(new_data, Classifier)
+        conn = connection()
+        if conn:
+            cur = conn.cursor()
+            cur.execute("INSERT INTO data (question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20, question21, question22, question23, question24, question25, question26, question27, question28, question29, question30, question31, question32) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (name,email,bithdate,age,gender,address,question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20, question21, question22, question23, question24, question25, question26, question27, question28, question29, question30, question31, question32,result))
+            conn.commit()
+
+            message = 'Response predicted and added to database successfully'
+        else:
+            message = 'There was something wrong. Please try again'
+
+        return render_template('result.html', message = message, result = result, new_data = new_data, name = name)
+
+
+
         return render_template('result.html', result=result)
     else:
         return render_template('result.html')
