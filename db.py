@@ -44,8 +44,6 @@ def create_db():
             age VARCHAR(100) NOT NULL,
             gender VARCHAR(100) NOT NULL,
             address VARCHAR(100) NOT NULL, 
-            birthplace VARCHAR(100) NOT NULL,
-            age VARCHAR(100) NOT NULL,
             question1 VARCHAR(100) NOT NULL,
             question2 VARCHAR(100) NOT NULL,
             question3 VARCHAR(100) NOT NULL,
