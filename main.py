@@ -98,16 +98,52 @@ def login_process():
 def personality_test():
     return render_template('form.html')
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    return render_template('register.html')
+    message = ''
+    if request.method == "POST":
+        email = request.form['email']
+        fname = request.form['fname']
+        mname = request.form['mname']
+        lname = request.form['lname']
+        password = request.form['password']
+
+        conn = connection()
+        with conn.cursor() as cur:
+            cur.execute("SELECT * FROM users WHERE email = %s", [email])
+            account = cur.fetchall()
+            if account:
+                message = "Account already exist!"
+            else:
+                message = "Account created successfully!"
+                cur.execute("INSERT INTO users VALUES(NULL,%s, %s, %s, %s, %s)", (email, fname, mname , lname, password))
+                conn.commit()
+        conn.close()
+
+    return render_template('register.html', message = message)
 
 @app.route('/about')
 def about():
     return render_template('about.html')
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        conn = connection()
+        with conn.cursor() as cur:
+            cur.execute("SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
+            user = cur.fetchone()
+        conn.close()
+
+        if user:
+            session['user'] = user
+            return redirect(url_for('personality_test'))
+        else:
+            message = 'Invalid email or password'
+            return redirect(url_for('login', message = message))
     return render_template('login.html')
 
 if __name__ == '__main__':
