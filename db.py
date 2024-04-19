@@ -36,9 +36,11 @@ def create_db():
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS data (
             id INT AUTO_INCREMENT PRIMARY KEY,
+            user_id INT,
+            FOREIGN KEY (user_id) REFERENCES users(id),
             name VARCHAR(100) NOT NULL,
             gender VARCHAR(100) NOT NULL,
-            address VARCHAR(100) NOT NULL, 
+            address VARCHAR(100) NOT NULL,
             birthplace VARCHAR(100) NOT NULL,
             age VARCHAR(100) NOT NULL,
             question1 VARCHAR(100) NOT NULL,
