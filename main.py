@@ -64,7 +64,7 @@ def form():
         question31 = request.form['question31']
         question32 = request.form['question32']
 
-        new_data = [name,email,bithdate,age,gender,address,question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20, question21, question22, question23, question24, question25, question26, question27, question28, question29, question30, question31, question32]
+        new_data = [name,email,birthdate,age,gender,address,question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20, question21, question22, question23, question24, question25, question26, question27, question28, question29, question30, question31, question32]
 
         Classifier = preprocess_and_train()
         result = predict(new_data, Classifier)
