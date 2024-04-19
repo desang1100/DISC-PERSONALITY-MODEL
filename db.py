@@ -37,6 +37,7 @@ def create_db():
         CREATE TABLE IF NOT EXISTS data (
             id INT AUTO_INCREMENT PRIMARY KEY,
             name VARCHAR(100) NOT NULL,
+            email VARCHAR(100) NOT NULL,
             gender VARCHAR(100) NOT NULL,
             address VARCHAR(100) NOT NULL, 
             birthplace VARCHAR(100) NOT NULL,
