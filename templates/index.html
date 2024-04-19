@@ -1,280 +1,344 @@
-<!DOCTYPE html>
-{% extends 'layouts/base.html' %}
-
-{% block body %}
+<!doctype html>
+{% extends 'layouts/base.html' %} {% block body %}
 <div class="head-section">
-    <header class="hero-section" style="height: 100vh;">
-      <div class="container d-flex">
-        <div class="row align-items-center py-5 g-5">
-          <div class="col-12 col-md-6">
-            <div class="text-center text-md-start">
-              <h1 class="display-md-2 display-4 fw-bold text-dark pb-2">
-                <span class="text-primary">DISC </span>Personality Types
-              </h1>
-              <p class="lead">
-                Delve into the intricacies of your DISC personality and 
-                uncover tailored insights to navigate various aspects of 
-                your life with precision and understanding.
-              </p>
-              <a href="/personality_test">
-                <button
+    <header class="hero-section" style="height: 100vh">
+        <div class="container d-flex">
+            <div class="row align-items-center py-5 g-5">
+                <div class="col-12 col-md-6">
+                    <div class="text-center text-md-start">
+                        <h1
+                            class="display-md-2 display-4 fw-bold text-dark pb-2"
+                        >
+                            <span class="text-primary">DISC </span>Personality
+                            Types
+                        </h1>
+                        <p class="lead">
+                            Delve into the intricacies of your DISC personality
+                            and uncover tailored insights to navigate various
+                            aspects of your life with precision and
+                            understanding.
+                        </p>
+                        <a href="/personality_test">
+                            <button
+                                class="btn btn-primary px-5 py-3 mt-3 fs-5 fw-medium"
+                                type="button"
+                            >
+                                Test Now
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <img
+                        src="/static/img/pngegg.png"
+                        class="img-fluid"
+                        alt="a man using vr gadget"
+                        width="100%"
+                        height="50%"
+                    />
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div class="container">
+    <div class="row align-items-center gx-3 gy-5 py-5 mt-5">
+        <div class="col-12 col-md-12 col-lg-5">
+            <img
+                src="/static/img/img-1.webp"
+                class="img-fluid mx-auto d-block"
+                alt="a man using vr gadget"
+            />
+        </div>
+        <div class="col-12 col-md-12 text-center text-lg-start col-lg-7">
+            <h2 class="fw-bold text-primary fs-1 pb-3">
+                About DISC Personality
+            </h2>
+            <p class="about-text">
+                The DISC personality model simplifies understanding people by
+                sorting them into four main categories: Dominance, Influence,
+                Steadiness, and Conscientiousness. Those with Dominance traits
+                are confident and assertive, often taking the lead in
+                decision-making. Influence personalities are outgoing and thrive
+                in social settings, enjoying interactions with others.
+                Steadiness individuals value stability and reliability,
+                preferring harmonious environments and teamwork. Meanwhile,
+                Conscientiousness types are meticulous and organized, paying
+                close attention to details and striving for accuracy in their
+                work. By recognizing these distinct personality styles,
+                individuals can enhance communication, collaboration, and mutual
+                understanding in both personal and professional relationships.
+            </p>
+            <button
                 class="btn btn-primary px-5 py-3 mt-3 fs-5 fw-medium"
                 type="button"
-              >
-                Test Now
-              </button>
-
-              </a>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <img src="/static/img/pngegg.png" class="img-fluid" alt="a man using vr gadget" width="100%" height="50%">
-          </div>
-        
+            >
+                Read More About Now
+            </button>
         </div>
-      </div>
-    </header>
-  </div>
-
-  <div class="container ">
-    <div class="row align-items-center gx-3 gy-5 py-5 mt-5 ">
-      <div class="col-12 col-md-12 col-lg-5">
-        <img
-          src="/static/img/img-1.webp"
-          class="img-fluid mx-auto d-block"
-          alt="a man using vr gadget"
-        />
-      </div>
-      <div class="col-12 col-md-12 text-center text-lg-start col-lg-7">
-        <h2 class="fw-bold text-primary fs-1 pb-3">About DISC Personality</h2>
-        <p class="about-text">
-          The DISC personality model simplifies understanding people by sorting them 
-          into four main categories: Dominance, Influence, Steadiness, and Conscientiousness. 
-          Those with Dominance traits are confident and assertive, often taking the lead in decision-making. 
-          Influence personalities are outgoing and thrive in social settings, enjoying interactions with others. 
-          Steadiness individuals value stability and reliability, preferring harmonious environments and teamwork. Meanwhile, 
-          Conscientiousness types are meticulous and organized, paying close attention to details and striving for accuracy in their work. 
-          By recognizing these distinct personality styles, individuals can enhance communication, collaboration, and mutual understanding 
-          in both personal and professional relationships.
-        </p>
-        <button
-          class="btn btn-primary px-5 py-3 mt-3 fs-5 fw-medium"
-          type="button"
-        >
-          Read More About Now
-        </button>
-      </div>
     </div>
-  </div>
-  <div class="features-section py-5">
+</div>
+<div class="features-section py-5">
     <div class="container">
-      <h2 class="fs-1 fw-bold text-center pt-5 pb-5 text-primary">
-        Key Features
-      </h2>
-      <div class="row g-5 pb-5">
-        <div class="col-md-6 col-lg-4">
-          <div class="card px-3 py-4 shadow-sm">
-            <ion-icon class="ionicons" name="bulb-outline"></ion-icon>
-            <h3 class="f5">Distinct Categories</h3>
-            <p class="card-text lead">
-              The DISC model categorizes individuals into four main personality types—Dominance, Influence, Steadiness, and Conscientiousness—based on observable behavioral traits.
-            </p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="card px-3 py-4 shadow-sm blue-bg">
-            <ion-icon
-              class="ionicons"
-              name="shield-checkmark-outline"
-            ></ion-icon>
-            <h3 class="f5">Communication Enhancement</h3>
-            <p class="card-text lead">
-              Understanding the DISC profiles of oneself and others can improve communication by tailoring approaches to suit different styles, leading to clearer and more effective interactions.
-            </p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 offset-md-3 offset-0 offset-lg-0">
-          <div class="card px-3 py-4 shadow-sm">
-            <ion-icon class="ionicons" name="hourglass-outline"></ion-icon>
-            <h3 class="f5">Versatile Applicationy</h3>
-            <p class="card-text lead">
-              The DISC framework is applicable in various contexts, from team dynamics and leadership development to conflict resolution and sales strategies, fostering better relationships and outcomes.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container py-5 mb-5">
-    <div class="row">
-      <div class="col-12">
-        <h2 class="fw-bold text-primary fs-1 pb-3 text-center">
-          How it works
+        <h2 class="fs-1 fw-bold text-center pt-5 pb-5 text-primary">
+            Key Features
         </h2>
-
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button fs-3 text-dark fw-medium"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-              What is the DISC model?
-              </button>
-            </h2>
-            <div
-              id="collapseOne"
-              class="accordion-collapse collapse show"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <p class="lead">
-                  The DISC model is a behavioral assessment tool that categorizes individuals into four primary personality types: Dominance, Influence, Steadiness, and Conscientiousness. Each type represents distinct behavioral traits and preferences.
-                </p>
-              </div>
+        <div class="row g-5 pb-5">
+            <div class="col-md-6 col-lg-4">
+                <div class="card px-3 py-4 shadow-sm">
+                    <ion-icon class="ionicons" name="bulb-outline"></ion-icon>
+                    <h3 class="f5">Distinct Categories</h3>
+                    <p class="card-text lead">
+                        The DISC model categorizes individuals into four main
+                        personality types—Dominance, Influence, Steadiness, and
+                        Conscientiousness—based on observable behavioral traits.
+                    </p>
+                </div>
             </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed fs-3 text-dark fw-medium"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseTwo"
-                aria-expanded="false"
-                aria-controls="collapseTwo"
-              >
-              How does it categorize individuals?
-              </button>
-            </h2>
-            <div
-              id="collapseTwo"
-              class="accordion-collapse collapse"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <p class="lead">
-                  Through a questionnaire or assessment, individuals are evaluated based on their responses to various statements or scenarios. Their answers determine their dominant DISC traits, placing them within one or more of the four personality categories.
-                </p>
-              </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card px-3 py-4 shadow-sm blue-bg">
+                    <ion-icon
+                        class="ionicons"
+                        name="shield-checkmark-outline"
+                    ></ion-icon>
+                    <h3 class="f5">Communication Enhancement</h3>
+                    <p class="card-text lead">
+                        Understanding the DISC profiles of oneself and others
+                        can improve communication by tailoring approaches to
+                        suit different styles, leading to clearer and more
+                        effective interactions.
+                    </p>
+                </div>
             </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed fs-3 text-dark fw-medium"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseThree"
-                aria-expanded="false"
-                aria-controls="collapseThree"
-              >
-              What are the characteristics of each personality type?
-              </button>
-            </h2>
-            <div
-              id="collapseThree"
-              class="accordion-collapse collapse"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <ul class="lead">
-                  <li><b>Dominance:</b> Assertive, results-oriented, decisive, and competitive.</li>
-                  <li><b>Influence:</b> Outgoing, enthusiastic, persuasive, and sociable.</li>
-                  <li><b>Steadiness:</b> Patient, reliable, supportive, and cooperative.</li>
-                  <li><b>Conscientiousness:</b> Detail-oriented, analytical, systematic, and precise.</li>
-                </ul>
-              </div>
+            <div class="col-md-6 col-lg-4 offset-md-3 offset-0 offset-lg-0">
+                <div class="card px-3 py-4 shadow-sm">
+                    <ion-icon
+                        class="ionicons"
+                        name="hourglass-outline"
+                    ></ion-icon>
+                    <h3 class="f5">Versatile Applicationy</h3>
+                    <p class="card-text lead">
+                        The DISC framework is applicable in various contexts,
+                        from team dynamics and leadership development to
+                        conflict resolution and sales strategies, fostering
+                        better relationships and outcomes.
+                    </p>
+                </div>
             </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed fs-3 text-dark fw-medium"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseFour"
-                aria-expanded="false"
-                aria-controls="collapseFour"
-              >
-              How is it used in communication and relationships?
-              </button>
-            </h2>
-            <div
-              id="collapseFour"
-              class="accordion-collapse collapse"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <p class="lead">
-                  Understanding the DISC profiles of oneself and others helps tailor communication styles to be more effective. By recognizing and adapting to different personality types, individuals can foster better rapport, collaboration, and mutual understanding.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed fs-3 text-dark fw-medium"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseFive"
-                aria-expanded="false"
-                aria-controls="collapseFive"
-              >
-              What are the applications of the DISC model?
-              </button>
-            </h2>
-            <div
-              id="collapseFive"
-              class="accordion-collapse collapse"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <p class="lead">
-                  The DISC framework finds applications in various fields such as team building, leadership development, conflict resolution, sales training, and personal development. It provides insights into behavior and communication preferences, aiding in improving relationships and achieving desired outcomes.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button
-                class="accordion-button collapsed fs-3 text-dark fw-medium"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseSix"
-                aria-expanded="false"
-                aria-controls="collapseSix"
-              >
-              Is the DISC assessment reliable?
-              </button>
-            </h2>
-            <div
-              id="collapseSix"
-              class="accordion-collapse collapse"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <p class="lead">
-                  While the DISC model offers valuable insights into behavior and communication styles, it's important to remember that no personality assessment is infallible. Results may vary depending on factors such as individual mood, context, and self-awareness. However, when used appropriately, the DISC assessment can be a helpful tool for self-discovery and interpersonal understanding.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
-  <footer class="footer-section">
-    <p class="text-center py-5 mb-0">
-      &copy; 2024 Bato. All rights reserved.
-    </p>
-  </footer>
+<div class="container py-5 mb-5">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="fw-bold text-primary fs-1 pb-3 text-center">
+                How it works
+            </h2>
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button fs-3 text-dark fw-medium"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne"
+                            aria-expanded="true"
+                            aria-controls="collapseOne"
+                        >
+                            What is the DISC model?
+                        </button>
+                    </h2>
+                    <div
+                        id="collapseOne"
+                        class="accordion-collapse collapse show"
+                        data-bs-parent="#accordionExample"
+                    >
+                        <div class="accordion-body">
+                            <p class="lead">
+                                The DISC model is a behavioral assessment tool
+                                that categorizes individuals into four primary
+                                personality types: Dominance, Influence,
+                                Steadiness, and Conscientiousness. Each type
+                                represents distinct behavioral traits and
+                                preferences.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed fs-3 text-dark fw-medium"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="collapseTwo"
+                        >
+                            How does it categorize individuals?
+                        </button>
+                    </h2>
+                    <div
+                        id="collapseTwo"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                    >
+                        <div class="accordion-body">
+                            <p class="lead">
+                                Through a questionnaire or assessment,
+                                individuals are evaluated based on their
+                                responses to various statements or scenarios.
+                                Their answers determine their dominant DISC
+                                traits, placing them within one or more of the
+                                four personality categories.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed fs-3 text-dark fw-medium"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree"
+                            aria-expanded="false"
+                            aria-controls="collapseThree"
+                        >
+                            What are the characteristics of each personality
+                            type?
+                        </button>
+                    </h2>
+                    <div
+                        id="collapseThree"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                    >
+                        <div class="accordion-body">
+                            <ul class="lead">
+                                <li>
+                                    <b>Dominance:</b> Assertive,
+                                    results-oriented, decisive, and competitive.
+                                </li>
+                                <li>
+                                    <b>Influence:</b> Outgoing, enthusiastic,
+                                    persuasive, and sociable.
+                                </li>
+                                <li>
+                                    <b>Steadiness:</b> Patient, reliable,
+                                    supportive, and cooperative.
+                                </li>
+                                <li>
+                                    <b>Conscientiousness:</b> Detail-oriented,
+                                    analytical, systematic, and precise.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed fs-3 text-dark fw-medium"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour"
+                            aria-expanded="false"
+                            aria-controls="collapseFour"
+                        >
+                            How is it used in communication and relationships?
+                        </button>
+                    </h2>
+                    <div
+                        id="collapseFour"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                    >
+                        <div class="accordion-body">
+                            <p class="lead">
+                                Understanding the DISC profiles of oneself and
+                                others helps tailor communication styles to be
+                                more effective. By recognizing and adapting to
+                                different personality types, individuals can
+                                foster better rapport, collaboration, and mutual
+                                understanding.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed fs-3 text-dark fw-medium"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive"
+                            aria-expanded="false"
+                            aria-controls="collapseFive"
+                        >
+                            What are the applications of the DISC model?
+                        </button>
+                    </h2>
+                    <div
+                        id="collapseFive"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                    >
+                        <div class="accordion-body">
+                            <p class="lead">
+                                The DISC framework finds applications in various
+                                fields such as team building, leadership
+                                development, conflict resolution, sales
+                                training, and personal development. It provides
+                                insights into behavior and communication
+                                preferences, aiding in improving relationships
+                                and achieving desired outcomes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed fs-3 text-dark fw-medium"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseSix"
+                            aria-expanded="false"
+                            aria-controls="collapseSix"
+                        >
+                            Is the DISC assessment reliable?
+                        </button>
+                    </h2>
+                    <div
+                        id="collapseSix"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                    >
+                        <div class="accordion-body">
+                            <p class="lead">
+                                While the DISC model offers valuable insights
+                                into behavior and communication styles, it's
+                                important to remember that no personality
+                                assessment is infallible. Results may vary
+                                depending on factors such as individual mood,
+                                context, and self-awareness. However, when used
+                                appropriately, the DISC assessment can be a
+                                helpful tool for self-discovery and
+                                interpersonal understanding.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer-section">
+    <p class="text-center py-5 mb-0">&copy; 2024 Bato. All rights reserved.</p>
+</footer>
 {% endblock %}
