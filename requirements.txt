@@ -1,2 +1,5 @@
-flask_mysqldb
 flask
+flask_mysqldb
+pandas
+scikit-learn
+requests

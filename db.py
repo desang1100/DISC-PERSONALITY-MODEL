@@ -1,11 +1,17 @@
 # import MySQLdb
 from flask_mysqldb import MySQLdb
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # MySQL Configuration
-DB_HOST = 'localhost'
-DB_USER = 'root'
-DB_PASSWORD = ''
-DB_NAME = 'disc_db'
+DB_HOST = os.getenv('DB_HOST')
+DB_USER = os.getenv('DB_USER')
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+DB_NAME = os.getenv('DB_NAME')
+print(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
 
 def create_db():
     # Connect to MySQL
