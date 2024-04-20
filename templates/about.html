@@ -1,128 +1,150 @@
 {% extends 'layouts/base.html' %} {% block body %}
-<div
+<!-- <div
     class="d-flex justify-content-center align-items-center p-5 overflow-hidden"
->
-    <div class="container-fluid col-lg-10">
-        <div class="d-flex flex-column shadow-lg p-4 rounded-4">
-            <div class="p-5" id="featured-3">
-                <h2 class="pb-2 border-bottom text-center">TEAM</h2>
+> -->
+<style>
+    .team {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-                <div class="row justify-content-center mb-5">
-                    <div class="col-lg-4">
-                        <div class="feature text-center">
-                            <div
-                                class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-info rounded-circle bg-gradient fs-2 mb-3 p-2"
-                            >
-                                <img
-                                    src="/static/img/girl_user.jpg"
-                                    class="bi"
-                                    width="120"
-                                    height="120"
-                                    alt="Naive Bayes"
-                                />
-                            </div>
-                            <h3 class="fs-2 text-body-emphasis">
-                                Jesell Mae Ano-os
-                            </h3>
-                            <p style="align-items: center">Researcher</p>
-                        </div>
-                    </div>
+    .feature {
+        padding: 1.5rem;
+        border-radius: 1rem;
+        background-color: #f8f9fa;
+        transition: all 0.3s;
+    }
 
-                    <div class="col-lg-4">
-                        <div class="feature text-center">
-                            <div
-                                class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-info rounded-circle bg-gradient fs-2 mb-3 p-2"
-                            >
-                                <img
-                                    src="/static/img/girl_user.jpg"
-                                    class="bi p-2"
-                                    width="120"
-                                    height="120"
-                                    alt="Python Flask"
-                                />
-                            </div>
-                            <h3 class="fs-2 text-body-emphasis">
-                                Sirlyn Montecillo
-                            </h3>
-                            <p>Designer</p>
-                        </div>
-                    </div>
+    .feature:hover {
+        transform: translateY(-0.5rem);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    }
 
-                    <div class="col-lg-4">
-                        <div class="feature text-center">
-                            <div
-                                class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-info rounded-circle bg-gradient fs-2 mb-3 p-2"
-                            >
-                                <img
-                                    src="/static/img/girl_user.jpg"
-                                    class="bi p-2"
-                                    width="120"
-                                    height="120"
-                                    alt="CSV"
-                                />
-                            </div>
-                            <h3 class="fs-2 text-body-emphasis">
-                                Eugelyn Dela Rosa
-                            </h3>
-                            <p>Developer</p>
-                        </div>
-                    </div>
-                </div>
+    .feature-icon {
+        width: 120px;
+        height: 120px;
+        background-color: #f8f9fa;
+        transition: all 0.3s;
+    }
 
+    .feature:hover .feature-icon {
+        transform: rotate(360deg);
+    }
+</style>
+<div class="container-fluid col-lg-10 p-4 mb-5">
+    <!-- <div class="d-flex flex-column shadow-lg p-4 rounded-4"> -->
+    <!-- <div class="" id="featured-3"> -->
+    <h2 class="pb-2 border-bottom text-center">TEAM</h2>
+
+    <div class="row justify-content-center mb-2">
+        <div class="col-lg-4">
+            <div class="feature text-center">
                 <div
-                    class="row g-4 py-5 row-cols-1 row-cols-lg-3 justify-content-center"
+                    class="feature-icon d-inline-flex align-items-center justify-content-center rounded-circle bg-gradient fs-2 mb-3 p-2"
                 >
-                    <div class="feature col-lg-4 text-center">
-                        <div
-                            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-info rounded-circle bg-gradient fs-2 mb-3 p-2"
-                        >
-                            <img
-                                src="/static/img/user.png"
-                                class="bi"
-                                width="120"
-                                height="120"
-                                alt="Naive Bayes"
-                            />
-                        </div>
-                        <h3 class="fs-2 text-body-emphasis">Zoren Bajao</h3>
-                        <p style="align-items: center">Advicer</p>
-                    </div>
-
-                    <div class="feature col-lg-4 text-center">
-                        <div
-                            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-info rounded-circle bg-gradient fs-2 mb-3 p-2"
-                        >
-                            <img
-                                src="/static/img/user.png"
-                                class="bi p-2"
-                                width="120"
-                                height="120"
-                                alt="Python Flask"
-                            />
-                        </div>
-                        <h3 class="fs-2 text-body-emphasis">Warren Salado</h3>
-                        <p>RPM, Psychometrican</p>
-                    </div>
+                    <img
+                        src="/static/img/girl.svg"
+                        class="bi"
+                        width="120"
+                        height="120"
+                        alt="Naive Bayes"
+                    />
                 </div>
+                <h3 class="fs-2 text-body-emphasis">Jesell Mae Ano-os</h3>
+                <p style="align-items: center">Researcher</p>
+            </div>
+        </div>
 
-                <div class="quote border-top text-center">
-                    <div class="title mt-2">
-                        <p class="mb-2 fs-5 fst-italic">Quote</p>
-                    </div>
-                    <blockquote class="blockquote mb-0">
-                        <p>
-                            “You have to believe in yourself when no one else
-                            does.”
-                        </p>
-                        <footer class="blockquote-footer">
-                            Serena Williams<cite title="Source Title"
-                                >(https://www.prevention.com/life/a44189224/life-quotes/)</cite
-                            >
-                        </footer>
-                    </blockquote>
+        <div class="col-lg-4">
+            <div class="feature text-center">
+                <div
+                    class="feature-icon d-inline-flex align-items-center justify-content-center rounded-circle bg-gradient fs-2 mb-3 p-2"
+                >
+                    <img
+                        src="/static/img/girl.svg"
+                        class="bi p-2"
+                        width="120"
+                        height="120"
+                        alt="Python Flask"
+                    />
                 </div>
+                <h3 class="fs-2 text-body-emphasis">Sirlyn Montecillo</h3>
+                <p>Designer</p>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="feature text-center">
+                <div
+                    class="feature-icon d-inline-flex align-items-center justify-content-center rounded-circle bg-gradient fs-2 mb-3 p-2"
+                >
+                    <img
+                        src="/static/img/girl.svg"
+                        class="bi p-2"
+                        width="120"
+                        height="120"
+                        alt="CSV"
+                    />
+                </div>
+                <h3 class="fs-2 text-body-emphasis">Eugelyn Dela Rosa</h3>
+                <p>Developer</p>
             </div>
         </div>
     </div>
+
+    <div
+        class="row g-4 py-5 row-cols-1 row-cols-lg-3 justify-content-center gap-4"
+    >
+        <div class="feature col-lg-4 text-center">
+            <div
+                class="feature-icon d-inline-flex align-items-center justify-content-center rounded-circle bg-gradient fs-2 mb-3 p-2"
+            >
+                <img
+                    src="/static/img/boy.svg"
+                    class="bi"
+                    width="120"
+                    height="120"
+                    alt="Naive Bayes"
+                />
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Zoren Bajao</h3>
+            <p style="align-items: center">Advicer</p>
+        </div>
+
+        <div class="feature col-lg-4 text-center">
+            <div
+                class="feature-icon d-inline-flex align-items-center justify-content-center rounded-circle bg-gradient fs-2 mb-3 p-2"
+            >
+                <img
+                    src="/static/img/boy.svg"
+                    class="bi p-2"
+                    width="120"
+                    height="120"
+                    alt="Python Flask"
+                />
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Warren Salado</h3>
+            <p>RPM, Psychometrican</p>
+        </div>
+    </div>
+
+    <div class="quote border-top text-center">
+        <div class="title mt-2">
+            <p class="mb-2 fs-5 fst-italic">Quote</p>
+        </div>
+        <blockquote class="blockquote mb-0">
+            <p>“You have to believe in yourself when no one else does.”</p>
+            <footer class="blockquote-footer">
+                Serena Williams<cite title="Source Title"
+                    >(https://www.prevention.com/life/a44189224/life-quotes/)</cite
+                >
+            </footer>
+        </blockquote>
+    </div>
 </div>
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
 {% endblock %}

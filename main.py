@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from svm import predict, preprocess_and_train
 from sklearn.preprocessing import LabelEncoder
+from svm import predict, preprocess_and_train
 import requests
 import json
 from flask_mysqldb import MySQLdb
-from db import create_db
+from db import create_db, DB_HOST, DB_USER, DB_PASSWORD, DB_NAME
 
 app = Flask(__name__)
 app.secret_key = 'secrettt'
@@ -13,7 +13,7 @@ create_db()
 
 def connection():
     try:
-        conn = MySQLdb.connect(host="localhost", user="root", password="", db="disc_db")
+        conn = MySQLdb.connect(host=DB_HOST, user=DB_USER, password=DB_PASSWORD, db=DB_NAME)
         return conn
     except Exception as e:
         return str(e)
@@ -25,7 +25,9 @@ def index():
 @app.route('/form', methods=['GET', 'POST'])
 def form():
     message = ''
-    result = None 
+    result = None
+    if not 'logged_in' in session:
+        return redirect(url_for('login'))
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
@@ -67,28 +69,52 @@ def form():
         question32 = request.form['question32']
 
         new_data = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20, question21, question22, question23, question24, question25, question26, question27, question28, question29, question30, question31, question32]
-        print(new_data)
+        # print(new_data)
         Classifier = preprocess_and_train()
         results = predict(new_data, Classifier)
-        
+
         conn = connection()
-        if conn:
-            cur = conn.cursor()
-            cur.execute("INSERT INTO data (name,email,birthDate,age,gender,address,question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20, question21, question22, question23, question24, question25, question26, question27, question28, question29, question30, question31, question32,results) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (name,email,birthdate,age,gender,address,question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20, question21, question22, question23, question24, question25, question26, question27, question28, question29, question30, question31, question32,results))
-
+        with conn.cursor() as cur:
+            cur.execute("""
+                INSERT INTO data
+                VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """,
+            (session['user_id'], name, email, birthdate, age, gender, address, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20, question21, question22, question23, question24, question25, question26, question27, question28, question29, question30, question31, question32, results))
             conn.commit()
+        conn.close()
+        message = 'Response predicted and added to database successfully'
 
-            message = 'Response predicted and added to database successfully'
-        else:
-            message = 'There was something wrong. Please try again'
+        return render_template('result.html', message = message, result = results, new_data = new_data, name = name)
 
-        return render_template('result.html', message = message, result = result, new_data = new_data, name = name)
+def get_data():
+    conn = connection()
+    cursor = conn.cursor()
 
+    # Query to get all columns from the data table
+    cursor.execute("""
+            SELECT u.id, u.email, u.fname, u.mname, u.lname, d.name, d.email, d.birthDate, d.age, d.gender, d.address, d.question1, d.question2, d.question3, d.question4, d.question5, d.question6, d.question7, d.question8, d.question9, d.question10, d.question11, d.question12, d.question13, d.question14, d.question15, d.question16, d.question17, d.question18, d.question19, d.question20, d.question21, d.question22, d.question23, d.question24, d.question25, d.question26, d.question27, d.question28, d.question29, d.question30, d.question31, d.question32, d.results
+            FROM users u
+            JOIN data d ON u.id = d.user_id
+        """)
 
+    # Fetch all rows
+    data_rows = cursor.fetchall()
 
-        return render_template('result.html', result=result)
-    else:
-        return render_template('result.html')
+    # Close cursor and connection
+    cursor.close()
+    conn.close()
+
+    return data_rows
+
+@app.route('/history', methods=['GET', 'POST'])
+def history():
+    data = get_data()
+    # for row in data:
+        # id, user_id, name, email, birth_date, age, gender, address, *other_columns = row
+        # print(f"User ID: {user_id}, Name: {name}, Email: {email}, Birth Date: {birth_date}, Age: {age}, Gender: {gender}, Address: {address}, Other Columns: {other_columns}")
+        # print(row)
+    return render_template('history.html', data=data)
+
 
 @app.route('/login_process')
 def login_process():
@@ -139,12 +165,23 @@ def login():
         conn.close()
 
         if user:
-            session['user'] = user
+            session['logged_in'] = True
+            session['user_id'] = user[0]
+            session['user_email'] = user[1]
+            session['user_fname'] = user[2]
+            session['user_mname'] = user[3]
+            session['user_lname'] = user[4]
+            session['user_password'] = user[5]
             return redirect(url_for('personality_test'))
         else:
             message = 'Invalid email or password'
             return redirect(url_for('login', message = message))
     return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)

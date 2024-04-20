@@ -22,15 +22,28 @@
                         >Personality Test</a
                     >
                 </li>
+
                 <li class="nav-item ms-md-3 ms-0">
-                    <a class="nav-link" href="/about">About </a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
 
+                {% if 'logged_in' in session %}
+                <li class="nav-item ms-md-3 ms-0">
+                    <a class="nav-link" href="/history">History</a>
+                </li>
+
+                <li class="nav-item ms-md-3 ms-0">
+                    <a class="btn btn-primary px-4 py-2" href="/logout"
+                        >{{ session['user_email'] }} (Logout)
+                    </a>
+                </li>
+                {% else %}
                 <li class="nav-item ms-md-3 ms-0">
                     <a class="btn btn-primary px-4 py-2" href="/login"
                         >Login
                     </a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </div>
