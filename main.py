@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_mysqldb import MySQLdb
 from sklearn.preprocessing import LabelEncoder
 from svm import predict, preprocess_and_train
 import requests
 import json
-from flask_mysqldb import MySQLdb
 from db import create_db, DB_HOST, DB_USER, DB_PASSWORD, DB_NAME
 
 app = Flask(__name__)
@@ -21,6 +21,10 @@ def connection():
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/personality_test')
+def personality_test():
+    return render_template('form.html')
 
 @app.route('/form', methods=['GET', 'POST'])
 def form():
@@ -70,7 +74,6 @@ def form():
         question32 = request.form['question32']
 
         new_data = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, question16, question17, question18, question19, question20, question21, question22, question23, question24, question25, question26, question27, question28, question29, question30, question31, question32]
-        # print(new_data)
         Classifier = preprocess_and_train()
         results = predict(new_data, Classifier)
 
@@ -87,73 +90,26 @@ def form():
 
         return render_template('result.html', message = message, result = results, new_data = new_data, name = name)
 
-def get_data():
-    conn = connection()
-    cursor = conn.cursor()
-
-    # Query to get all columns from the data table
-    cursor.execute("""
-            SELECT u.id, u.email, u.fname, u.mname, u.lname, d.name, d.email, d.birthDate, d.age, d.gender, d.address, d.question1, d.question2, d.question3, d.question4, d.question5, d.question6, d.question7, d.question8, d.question9, d.question10, d.question11, d.question12, d.question13, d.question14, d.question15, d.question16, d.question17, d.question18, d.question19, d.question20, d.question21, d.question22, d.question23, d.question24, d.question25, d.question26, d.question27, d.question28, d.question29, d.question30, d.question31, d.question32, d.results
-            FROM users u
-            JOIN data d ON u.id = d.user_id
-        """)
-
-    # Fetch all rows
-    data_rows = cursor.fetchall()
-
-    # Close cursor and connection
-    cursor.close()
-    conn.close()
-
-    return data_rows
-
-@app.route('/history', methods=['GET', 'POST'])
-def history():
-    data = get_data()
-    # for row in data:
-        # id, user_id, name, email, birth_date, age, gender, address, *other_columns = row
-        # print(f"User ID: {user_id}, Name: {name}, Email: {email}, Birth Date: {birth_date}, Age: {age}, Gender: {gender}, Address: {address}, Other Columns: {other_columns}")
-        # print(row)
-    return render_template('history.html', data=data)
-
-
-@app.route('/login_process')
-def login_process():
-    return render_template('login_process.html')
-
-@app.route('/personality_test')
-def personality_test():
-    return render_template('form.html')
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    success = ''
-    failed = ''
-    if request.method == "POST":
-        email = request.form['email']
-        fname = request.form['fname']
-        mname = request.form['mname']
-        lname = request.form['lname']
-        password = request.form['password']
-
-        conn = connection()
-        with conn.cursor() as cur:
-            cur.execute("SELECT * FROM users WHERE email = %s", [email])
-            account = cur.fetchall()
-            if account:
-                failed = "Account already exist!"
-                return render_template('register.html', message = failed)
-            else:
-                success = "Account created successfully!"
-                cur.execute("INSERT INTO users VALUES(NULL,%s, %s, %s, %s, %s)", (email, fname, mname , lname, password))
-                conn.commit()
-        conn.close()
-
-    return render_template('register.html', message = success)
-
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/history', methods=['GET', 'POST'])
+def history():
+    if not 'logged_in' in session:
+        message = 'Please login first'
+        return render_template('login.html', message = message)
+
+    conn = connection()
+    with conn.cursor() as cur:
+        cur.execute("""
+                SELECT u.id, u.email, u.fname, u.mname, u.lname, d.name, d.email, d.birthDate, d.age, d.gender, d.address, d.question1, d.question2, d.question3, d.question4, d.question5, d.question6, d.question7, d.question8, d.question9, d.question10, d.question11, d.question12, d.question13, d.question14, d.question15, d.question16, d.question17, d.question18, d.question19, d.question20, d.question21, d.question22, d.question23, d.question24, d.question25, d.question26, d.question27, d.question28, d.question29, d.question30, d.question31, d.question32, d.results
+                FROM users u
+                JOIN data d ON u.id = d.user_id
+            """)
+        data = cur.fetchall()
+    conn.close()
+    return render_template('history.html', data=data)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -180,6 +136,32 @@ def login():
             message = 'Invalid email or password'
             return redirect(url_for('login', message = message))
     return render_template('login.html')
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    success = ''
+    failed = ''
+    if request.method == "POST":
+        email = request.form['email']
+        fname = request.form['fname']
+        mname = request.form['mname']
+        lname = request.form['lname']
+        password = request.form['password']
+
+        conn = connection()
+        with conn.cursor() as cur:
+            cur.execute("SELECT * FROM users WHERE email = %s", [email])
+            account = cur.fetchall()
+            if account:
+                failed = "Account already exist!"
+                return render_template('register.html', message = failed)
+            else:
+                success = "Account created successfully!"
+                cur.execute("INSERT INTO users VALUES(NULL,%s, %s, %s, %s, %s)", (email, fname, mname , lname, password))
+                conn.commit()
+        conn.close()
+
+    return render_template('register.html', message = success)
 
 @app.route('/logout')
 def logout():
