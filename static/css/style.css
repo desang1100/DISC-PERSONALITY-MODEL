@@ -10,6 +10,7 @@ body {
     color: #555; /* Steel Gray */
     font-family: "Roboto", sans-serif;
     background-image: linear-gradient(180deg, #c4b6fd, #93acfc);
+    min-height: 100vh;
 }
 
 .navbar-brand {

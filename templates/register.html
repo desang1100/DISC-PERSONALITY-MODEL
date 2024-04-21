@@ -9,7 +9,7 @@
             background: rgba(77, 108, 201, 0.5);
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
-            width: 500px;
+            width: 800px;
         "
     >
         <div class="mb-3">
@@ -17,9 +17,14 @@
                 <span class="badge rounded-pill text-bg-primary">Register</span>
             </h1>
         </div>
-        <div class="d-flex gap-5">
+        {% if message == 'Account already exist!' %}
+        <div class="alert alert-danger" role="alert">{{ message }}</div>
+        {% elif message == 'Account created successfully!' %}
+        <div class="alert alert-info" role="alert">{{ message }}</div>
+        {% endif %}
+        <div class="d-flex gap-5 justify-content-center">
             <!-- Left -->
-            <div class="mt-2">
+            <div class="mt-2 w-100">
                 <div class="mb-1">
                     <label for="fname" class="form-label">First Name</label>
                     <input
@@ -56,7 +61,7 @@
             </div>
 
             <!-- Right -->
-            <div class="mt-2">
+            <div class="mt-2 w-100">
                 <div class="mb-1">
                     <label for="email" class="form-label">Email</label>
                     <input

@@ -27,7 +27,8 @@ def form():
     message = ''
     result = None
     if not 'logged_in' in session:
-        return redirect(url_for('login'))
+        message = 'Please login first'
+        return render_template('login.html', message = message)
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
@@ -126,7 +127,8 @@ def personality_test():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    message = ''
+    success = ''
+    failed = ''
     if request.method == "POST":
         email = request.form['email']
         fname = request.form['fname']
@@ -139,14 +141,15 @@ def register():
             cur.execute("SELECT * FROM users WHERE email = %s", [email])
             account = cur.fetchall()
             if account:
-                message = "Account already exist!"
+                failed = "Account already exist!"
+                return render_template('register.html', message = failed)
             else:
-                message = "Account created successfully!"
+                success = "Account created successfully!"
                 cur.execute("INSERT INTO users VALUES(NULL,%s, %s, %s, %s, %s)", (email, fname, mname , lname, password))
                 conn.commit()
         conn.close()
 
-    return render_template('register.html', message = message)
+    return render_template('register.html', message = success)
 
 @app.route('/about')
 def about():
