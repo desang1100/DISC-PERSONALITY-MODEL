@@ -77,6 +77,17 @@ def form():
         Classifier = preprocess_and_train()
         results = predict(new_data, Classifier)
 
+        d_count = new_data.count('DOMINANCE')
+        i_count = new_data.count('INFLUENTIAL')
+        c_count = new_data.count('CONSCIENTIOUSNESS')
+        s_count = new_data.count('STEADINESS')
+        length = len(new_data)
+
+        d_percentage = (d_count / length) * 100
+        i_percentage = (i_count / length) * 100
+        c_percentage = (c_count / length) * 100
+        s_percentage = (s_count / length) * 100
+
         conn = connection()
         with conn.cursor() as cur:
             cur.execute("""
@@ -88,7 +99,7 @@ def form():
         conn.close()
         message = 'Response predicted and added to database successfully'
 
-        return render_template('result.html', message = message, result = results, new_data = new_data, name = name)
+        return render_template('result.html', message = message, result = results, new_data = new_data, name = name, d_per = d_percentage, i_per = i_percentage, s_per = s_percentage, c_per = c_percentage)
 
 @app.route('/about')
 def about():

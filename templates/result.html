@@ -1,22 +1,138 @@
-{% extends 'layouts/base.html' %}
+{% extends 'layouts/base.html' %} {% block body %}
+<style>
+    .personality-trait {
+        margin-bottom: 20px;
+    }
 
-{% block body %}
-<div class="container" style="height: 90vh;">
-  <div class="row justify-content-center align-items-center" style="height: 90vh;">
-    <div class="col-md-6">
-      <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-        <div class="card-body text-center">
-          <h2 class="card-title mb-4">Personality Test Result</h2>
-          <div class="result">
-            {% if result %}
-              <p class="lead">Your personality type is: <strong>{{ result }}</strong></p>
-            {% else %}
-              <p class="lead">No result available.</p>
-            {% endif %}
-          </div>
+    .personality-trait .progress {
+        height: 25px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .personality-trait .progress-bar {
+        font-weight: bold;
+        padding-top: 3px;
+    }
+</style>
+<div class="container" style="height: 90vh">
+    <div
+        class="row justify-content-center align-items-center"
+        style="height: 90vh"
+    >
+        <div class="col-md-6">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body text-center">
+                    <h2 class="card-title mb-4">Personality Test Result</h2>
+                    <div class="result">
+                        {% if result %}
+                        <div class="row">
+                            <!-- Dominance -->
+                            <div class="personality-trait">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <span>Dominance:</span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="progress">
+                                            <div
+                                                class="progress-bar bg-primary"
+                                                role="progressbar"
+                                                style="width: {{ d_per }}%;"
+                                                aria-valuenow="{{ d_per }}"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                            >
+                                                {{ d_per }}%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Influential -->
+                            <div class="personality-trait">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <span>Influential:</span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="progress">
+                                            <div
+                                                class="progress-bar bg-success"
+                                                role="progressbar"
+                                                style="width: {{ i_per }}%;"
+                                                aria-valuenow="{{ i_per }}"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                            >
+                                                {{ i_per }}%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Steadiness -->
+                            <div class="personality-trait">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <span>Steadiness:</span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="progress">
+                                            <div
+                                                class="progress-bar bg-warning"
+                                                role="progressbar"
+                                                style="width: {{ s_per }}%;"
+                                                aria-valuenow="{{ s_per }}"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                            >
+                                                {{ s_per }}%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Conscientiousness -->
+                            <div class="personality-trait">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <span>Conscientiousness:</span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="progress">
+                                            <div
+                                                class="progress-bar bg-danger"
+                                                role="progressbar"
+                                                style="width: {{ c_per }}%;"
+                                                aria-valuenow="{{ c_per }}"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                            >
+                                                {{ c_per }}%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <p class="lead mt-4">
+                                    Your personality type is:
+                                    <strong>{{ result }}</strong>
+                                </p>
+                            </div>
+                            {% else %}
+                            <p class="lead">No result available.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+    {% endblock %}
 </div>
-{% endblock %}
