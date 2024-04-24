@@ -15,19 +15,30 @@
         padding-top: 3px;
     }
 </style>
-<div class="container" style="height: 90vh">
+
+
+
+<div class="container-fluid w-100 " style="height: 90vh">
     <div
         class="row justify-content-center align-items-center"
         style="height: 90vh"
     >
-        <div class="col-md-6">
-            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="col-md-12 p-5">
+            <div class="card shadow-xl p-3 mb-5 bg-white rounded">
                 <div class="card-body text-center">
-                    <h2 class="card-title mb-4">Personality Test Result</h2>
+                    <h2 class="card-title mb-4 p-5">Personality Test Result</h2>
+                    <div class="col-md-12">
+                        <p class="lead mt-4">
+                            Your personality type is:
+                            <strong>{{ result }}</strong>
+                        </p>
+                    </div>
                     <div class="result">
-                        {% if result %}
+                      
                         <div class="row">
-                            <!-- Dominance -->
+                            <div class="col"> 
+                            <div class="container-sm p-5">
+                                    <!-- Dominance -->
                             <div class="personality-trait">
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
@@ -119,20 +130,217 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
-                                <p class="lead mt-4">
-                                    Your personality type is:
-                                    <strong>{{ result }}</strong>
-                                </p>
                             </div>
-                            {% else %}
-                            <p class="lead">No result available.</p>
-                            {% endif %}
+                    
+                        </div>
+                        
+                </div>
+                <div class="col">
+                <!--     DETAILS CARD      -->
+
+
+                    <div class="row align-items-start p-5 mt-5" >
+                        
+                        <div class="col">
+                            <div class="d-card shadow-lg p-3 mb-2 bg-white rounded">
+                            <div class="card-body text-center">
+                                <h2 class="card-title mb-4">Dominance</h2>
+                                <div class="result p-0">
+                                    
+                                    <h6 class="lh-base">
+                                        A person with a dominant personality type is assertive, courageous, proactive, and self-reliant .
+                                        They are focused and goal-oriented as well. These individuals carry themselves in a manner that is socially 
+                                        impressive and emanates positive vibes to others. Dominant personalities often have high self-esteem and confidence levels.
+                                        A dominant personality is a personality type that often leads themselves and others into action. It’s primarily defined by 
+                                        an overarching motivation for power and a sense of pride.
+                                    </h6>
+                                        
+
+                                    
+                                    <div class="container text-center p-4">
+                                        <h6>
+                                        <div class="row p-3">
+                                            <div class="col">  •Excellent   communication skills </div>
+                                            <div class="col"> • Confident in themselves</div>
+                                        </div>
+                                        <div class="row p-3">
+                                            <div class="col">  • Influential characteristics</div>
+                                            <div class="col"> • Determined</div>
+                                        </div>
+                                        <div class="row p-3">
+                                            <div class="col">  • Able to manage stress </div>
+                                            <div class="col"> • Generally more curious than others</div>
+                                        </div>
+                                        <div class="row p-3">
+                                            <div class="col">  • Impatienceness </div>
+                                            <div class="col"> </div>
+                                        </div>
+
+                                    </h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="col">
+                            <div class="d-card shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="card-body text-center">
+                                <h2 class="card-title mb-4">Influential</h2>
+                                <div class="result p-1">
+                                    <h6 class="lh-base">
+                                        If you're an Influence type, you tend to care about connecting with and influencing 
+                                        the people around you, and you excel in forming relationships.You may be described as a people- person. 
+                                        You enjoy being the lifeblood of a team.Influence is useful in roles that require you to bring people 
+                                        together by using your natural warmth and charisma. However,it doesn't work as well for people who spend 
+                                        a lot of time working on their own. Highly Influential people thrive on human connection and may be frustrated when 
+                                        they are forced to perform isolated, impersonal tasks.
+                                    </h6>
+                                       
+                                            
+                                    
+                                    <div class="container text-center">
+                                        <h6>
+                                        <div class="row p-3">
+                                            <div class="col">  •Engaging </div>
+                                            <div class="col"> • Persuasive</div>
+                                        </div>
+                                        <div class="row p-3">
+                                            <div class="col">  •Enthusiastic </div>
+                                            <div class="col"> • Friendly</div>
+                                        </div>
+                                        <div class="row p-3">
+                                            <div class="col">  • Active </div>
+                                            <div class="col"> • Charming</div>
+                                        </div>
+                                        <div class="row p-3">
+                                            <div class="col">  • Sociable </div>
+                                            <div class="col"> • Encouraging</div>
+                                        </div>
+                                        <div class="row p-3">
+                                            <div class="col">  • Innovative </div>
+                                            <div class="col"> </div>
+                                        </div>
+                                    </h6>
+
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+
+                    </div>
+                    <div class="row align-items-start p-5 mt-5">
+                        <div class="col">
+                        <div class="d-card shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="card-body text-center">
+                                <h2 class="card-title mb-4">Steadiness</h2>
+                                <div class="result p-1">
+                                    <h6 class="lh-base">
+                                            People who are steady  are more introverted and reserved, and people- oriented.
+                                            They tend to be supportive, stable, sweet, and shy. They are typically calm, easy-going, and 
+                                            collected people. They like giving support, collaborating, and maintaining stability. When people who have 
+                                            high "S" are in leadership positions, they work hard to ensure harmony and balance.
+
+                                    </h6>
+                                    
+
+                                    <div class="container text-center">
+                                        <h6>
+                                        <div class="row p-3">
+                                            <div class="col">  • Good listener </div>
+                                            <div class="col"> • Team player</div>
+                                        </div>
+                                        <div class="row p-3">
+                                            <div class="col">  • Possessive </div>
+                                            <div class="col"> • Steady</div>
+                                        </div>
+                                        <div class="row p-3">
+                                            <div class="col">  • Predictable </div>
+                                            <div class="col"> • Understanding</div>
+                                        </div>
+                                        <div class="row p-3">
+                                            <div class="col">  • Friendly </div>
+                                            <div class="col"> </div>
+                                        </div>
+                                        
+                                    </h6>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="d-card shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="card-body text-center">
+                                <h2 class="card-title mb-4">Consciousness</h2>
+                                <div class="result">
+                                    
+                                    <h6 class="lh-base">
+                                        Conscientious people are well organized, demonstrate self- control and can plan their time very well.They are known as great team players and diligent workers.
+                                        There is a lot to be said about having a conscientious workforce or 
+                                        individual within a team. Often described as "the perfect personality for a team", conscientious 
+                                        individuals demonstrate a strong work ethic, are reliable, punctual, pay attention to detail and show 
+                                        commitment and purpose. They are the characters that you will see plan their work to the last details or 
+                                        even time schedule.
+                                    </h6> 
+                                
+
+                                    <div class="container text-center">
+                                        <h6>
+                                        <div class="row p-3">
+                                            <div class="col">  • Self discipline </div>
+                                            <div class="col"> • Dependability</div>
+                                        </div>
+                                        <div class="row p-3">
+                                            <div class="col">  • Efficiency </div>
+                                            <div class="col"> • Cautiousness</div>
+                                        </div>
+                                        <div class="row p-3">
+                                            <div class="col">  • Commitment </div>
+                                            <div class="col"></div>
+                                        </div>
+                                        
+                                    </h6>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                        
+
+                        
+                        
+
+                        
+
+       <!--     DETAILS CARD      -->
+               </div>
+           </div>
             </div>
         </div>
+                            
+           
+            </div>
+            
+            
+        </div>
     </div>
+
+    
+
+
+    
     {% endblock %}
+    
 </div>
+
