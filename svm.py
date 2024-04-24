@@ -4,7 +4,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 
-originalDataPath = 'Data/duplicated_data.csv'
+originalDataPath = 'Data/data.csv'
 
 def preprocess_and_train():
     df = pd.read_csv(originalDataPath, encoding='latin-1')
@@ -127,6 +127,9 @@ def predict(new_data, Classifier):
     print(newData)
 
     output = Classifier.predict([newData])
+
+
+    
     prediction = output[0]
 
     with open(originalDataPath, 'r', newline='', encoding='ISO-8859-1') as file:
